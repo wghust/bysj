@@ -1,0 +1,22 @@
+<%- include main_personal %>
+<div class="header">
+	<div class="open_menu" data-check="1">
+		<img src="http://mobile.tecclass.cn/images/user_menu.png">
+	</div>
+	<p><%=title %></p>
+	<div class="back_right">
+		<a href="javascript:history.go(-1);">
+			<img src="http://mobile.tecclass.cn/images/right.png">
+		</a>
+	</div>
+</div>
+<script type="text/javascript">
+	seajs.config({
+		base:"/sea-modules/",
+		alias:{
+			"jquery":"jquery/jquery/1.10.1/jquery.js",
+			"jquery-easing":"jquery/easing/1.3.0/easing.js"
+		}
+	});
+	seajs.use("/javascripts/nav/src/nav_op");
+</script>

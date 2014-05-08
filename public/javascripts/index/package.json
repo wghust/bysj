@@ -1,0 +1,12 @@
+{
+	"family":"bysj",
+	"name":"index",
+	"version":"0.0.1",
+	"spm":{
+		"alias": {
+			"jquery":"jquery",
+			"jquery-easing":"jquery-easing"
+		},
+		"output":["style.css"]
+	}
+}
