@@ -1,0 +1,19 @@
+<%- include nav %>
+<div id="wrapper">
+	<div id="scroller">
+		<ul id="thelist">
+			<% posts.forEach(function(post,index){ %>
+				<li id="p<%=post.id%>">
+					<a href="/page/<%=post.id %>" class="bs_i_a">
+						<div class="bs_i_post">
+							<p class="bs_ip_author"><%=post.username%></p>
+							<p class="bs_ip_t"><%=post.title%></p>
+							<p class="bs_ip_c"><%-post.content_short %><span>......</span></p>
+						</div>
+					</a>
+					<div class="clear"></div>
+				</li>
+			<% }) %>
+		</ul>
+	</div>
+</div>

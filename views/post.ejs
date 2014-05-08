@@ -1,0 +1,26 @@
+<%- include header %>
+<%- include nav %>
+<div class="bs_container" id="bs_con_post">
+	<div class="bs_p_title">
+		<input type="text" placeholder="title" class="bs_p_title_t">
+	</div>
+	<div class="bs_p_content">
+		<textarea class="bs_p_con_t tabIndent" placeholder="write"></textarea>
+	</div>
+	<div class="bs_b_list">
+		<input type="button" value="Submit" class="bs_b_s">
+		<input type="button" value="Cancel" class="bs_b_c" onClick = "window.location.href='http://localhost:3000/';">
+		<span class="bs_l_msg"></span>
+	</div>
+</div>
+<script type="text/javascript">
+	seajs.config({
+		base:"/sea-modules/",
+		alias:{
+			"jquery":"jquery/jquery/1.10.1/jquery.js",
+			"jquery-easing":"jquery/easing/1.3.0/easing.js"
+		}
+	});
+	seajs.use("/javascripts/post/src/main.js");
+</script>
+<%- include footer %>

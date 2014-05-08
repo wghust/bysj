@@ -1,0 +1,66 @@
+<%- include ../header %>
+<%- include ex_nav %>
+<div class="bs_container bs_examedit_container">
+	<div class="bs_one_block bs_examedit_block">
+		<div class="bs_one_block_title bs_examedit_block_title">
+			<p class="bs_examedit_block_title_p1">EDIT</p>
+			<a href="/examinee/examlogout" class="bs_examedit_block_title_a_1"><input type="button" class="bs_input_button" value="LOG OUT"></a>
+			<a href="/examinee/addpage" class="bs_examedit_block_title_a"><input type="button" class="bs_input_button" value="ADD POST"></a>
+			<div class="clear"></div>
+		</div>
+		<div class="bs_one_block_content bs_examedit_block_content">
+			<table class="bs_examedit_block_content_table">
+				<tr class="bs_examedit_block_table_top">
+					<td width="5%">ID</td>
+					<td width="10%">TITLE</td>
+					<td width="30%">CONTENT</td>
+					<td width="20%">UPLOADTIME</td>
+					<td width="10%">ARTICLE TYPE</td>
+					<td width="15%">USER_OP</td>
+				</tr>
+				<% examall.forEach(function(oneexam,index){ %>
+					<tr class="bs_editlist_<%=oneexam.id %> <% if(oneexam.is_hide==0) {%>show_color<%} else {%>hide_color<%}%>">
+						<td><%=oneexam.id %></td>
+						<td>
+							<div contenteditable="true"><%=oneexam.title %></div>
+						</td>
+						<td>
+							<div contenteditable="true" class="bs_exam_edit_div"><%-oneexam.content %></div>
+						</td>
+						<td><%=oneexam.uploadtime %></td>
+						<td>
+							<% if(oneexam.article_type === 0) {%>
+								<p>SCHEDULE</p>
+							<% } else {%>
+								<% if(oneexam.article_type === 1) {%>
+									<p>PAPER</p>
+								<% } else {%>
+									<% if(oneexam.article_type === 2) {%>
+										<p>EXPERIENCE</p>
+									<% } else {%>
+										<p>LINKS</p>
+									<% }%>
+								<% }%>
+							<% } %>
+						</td>
+						<td>
+							<!-- 0是显示，1是隐藏 -->
+							<% if(oneexam.is_hide === 1) {%>
+								<input type="button" value="SHOW" data-ishide = "1" class="bs_input_button is_hide">
+							<% } else { %>
+								<input type="button" value="HIDE" data-ishide = "0" class="bs_input_button is_hide">
+							<% } %><br><br>
+							<input type="button" value="SAVE" class="bs_input_button exam_save">
+						</td>
+					</tr>
+				<% }) %>
+			</table>
+		</div>
+		<div class="bs_one_block_foot bs_examedit_block_foot">
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+seajs.use("/javascripts/examinee/src/edit.js");
+</script>
+<%- include ../footer %>
